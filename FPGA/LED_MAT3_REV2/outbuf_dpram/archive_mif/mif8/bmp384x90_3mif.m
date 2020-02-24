@@ -1,6 +1,7 @@
 %Date: 20180609
 %Author: Dmitriy S.
-%convert input bmp to the 3 mif files (split Top & Bot)
+%convert input bmp to the 3 mif files (Top, Bot, Mif)
+%these files are used for initializing image buffer
 
 close all;
 clear all;
