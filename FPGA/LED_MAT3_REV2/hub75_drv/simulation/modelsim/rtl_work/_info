@@ -1,0 +1,60 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim
+vhub75_drv
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1504238290
+!i10b 1
+!s100 EU[bCLdnzk=6jnW4ZCoCY1
+Iklngajh<9IGfW8j58HMc:0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 hub75_drv_v_unit
+S1
+R0
+w1504232704
+8D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source/hub75_drv.v
+FD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source/hub75_drv.v
+L0 17
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1504238289.000000
+!s107 D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source/hub75_drv.v|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source|D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source/hub75_drv.v|
+!i113 1
+Z5 o-sv -work work
+!s92 -sv -work work +incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source
+Z6 tCvgOpt 0
+vhub75_drv_vlg_tst
+R1
+R2
+!i10b 1
+!s100 bZO?^7MNiWl]63g3J_HiW3
+IQeXAANGQWN[>@1h]kfG?n0
+R3
+!s105 hub75_drv_vt_unit
+S1
+R0
+w1504238265
+8D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim/hub75_drv.vt
+FD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim/hub75_drv.vt
+L0 8
+R4
+r1
+!s85 0
+31
+!s108 1504238290.000000
+!s107 D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim/hub75_drv.vt|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim|D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim/hub75_drv.vt|
+!i113 1
+R5
+!s92 -sv -work work +incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim
+R6

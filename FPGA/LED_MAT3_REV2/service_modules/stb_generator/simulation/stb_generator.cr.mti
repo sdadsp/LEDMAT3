@@ -1,0 +1,15 @@
+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1.v {1 {vlog -work work_stb_generator -stats=none D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module strobe_gen_1k_50_5_1
+
+Top level modules:
+	strobe_gen_1k_50_5_1
+
+} {} {}} D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1_tb.v {1 {vlog -work work_stb_generator -stats=none D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module strobe_generator_tb
+
+Top level modules:
+	strobe_generator_tb
+
+} {} {}}

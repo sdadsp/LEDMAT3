@@ -1,0 +1,85 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/simulation/modelsim
+vpwm_6bit
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1508401420
+!i10b 1
+!s100 jU:[K9X1[dCP2jcQnglFS2
+I33[eXl@GX1g^GjY5P@bT22
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 !s105 pwm_v_unit
+S1
+R0
+Z5 w1508401108
+Z6 8D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source/pwm.v
+Z7 FD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source/pwm.v
+L0 31
+Z8 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z9 !s108 1508401420.000000
+Z10 !s107 D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source/pwm.v|
+Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source|D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source/pwm.v|
+!i113 1
+Z12 o-sv -work work
+Z13 !s92 -sv -work work +incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source
+Z14 tCvgOpt 0
+vpwm_6bit_vlg_tst
+R1
+R2
+!i10b 1
+!s100 fB<=Q7gBnDQL0eCfgNBk21
+IT]^GI5DO1JaeQW_TOzmff0
+R3
+!s105 pwm_6bit_vt_unit
+S1
+R0
+w1508401401
+8D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source/pwm_6bit.vt
+FD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source/pwm_6bit.vt
+L0 29
+R8
+r1
+!s85 0
+31
+R9
+!s107 D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source/pwm_6bit.vt|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source|D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source/pwm_6bit.vt|
+!i113 1
+R12
+R13
+R14
+vpwm_8bit
+R1
+R2
+!i10b 1
+!s100 OdS8VQhc>U^CbQ`Pm3l=J2
+I[HBV^D_>=5Sn8c9[_FdCA2
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 8
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14

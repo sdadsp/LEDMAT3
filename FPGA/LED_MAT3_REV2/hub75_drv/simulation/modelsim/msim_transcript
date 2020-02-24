@@ -1,0 +1,53 @@
+# Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
+# do hub75_drv_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source {D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source/hub75_drv.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:58:09 on Sep 01,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source" D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source/hub75_drv.v 
+# -- Compiling module hub75_drv
+# 
+# Top level modules:
+# 	hub75_drv
+# End time: 10:58:10 on Sep 01,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim {D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim/hub75_drv.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:58:10 on Sep 01,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim" D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim/hub75_drv.vt 
+# -- Compiling module hub75_drv_vlg_tst
+# 
+# Top level modules:
+# 	hub75_drv_vlg_tst
+# End time: 10:58:10 on Sep 01,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  hub75_drv_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" hub75_drv_vlg_tst 
+# Start time: 10:58:11 on Sep 01,2017
+# Loading sv_std.std
+# Loading work.hub75_drv_vlg_tst
+# Loading work.hub75_drv
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Note: $stop    : D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim/hub75_drv.vt(69)
+#    Time: 100050 ns  Iteration: 0  Instance: /hub75_drv_vlg_tst
+# Break in Module hub75_drv_vlg_tst at D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim/hub75_drv.vt line 69
+# End time: 11:45:35 on Sep 01,2017, Elapsed time: 0:47:24
+# Errors: 0, Warnings: 0
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/simulation/modelsim/wave20170901_1145.do

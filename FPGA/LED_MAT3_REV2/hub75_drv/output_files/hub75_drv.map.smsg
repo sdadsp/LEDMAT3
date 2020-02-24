@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at hub75_drv.v(143): always construct contains both blocking and non-blocking assignments File: D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source/hub75_drv.v Line: 143
+Info (10281): Verilog HDL Declaration information at hub75_drv.v(37): object "MEM_ADDR" differs only in case from object "mem_addr" in the same scope File: D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/hub75_drv/source/hub75_drv.v Line: 37

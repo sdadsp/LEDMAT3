@@ -1,0 +1,55 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/17.0
+vmbi5153_gclk
+DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1516431447
+!i10b 1
+!s100 ko<Mj7<389>CH0abSFE2a1
+IJHejZ3jWUz`Og<@i8Q8IC0
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+!s105 mbi5153_gclk_v_unit
+S1
+Z1 dD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/simulations/mbi5153_gclk
+w1516337987
+8D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/source/mbi5153_top/mbi5153_gclk.v
+FD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/source/mbi5153_top/mbi5153_gclk.v
+L0 38
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1516431446.000000
+!s107 D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/source/mbi5153_top/mbi5153_gclk.v|
+!s90 -reportprogress|300|-work|work_mbi5153_gclk|-sv|-stats=none|D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/source/mbi5153_top/mbi5153_gclk.v|
+!i113 1
+o-work work_mbi5153_gclk -sv
+Z3 tCvgOpt 0
+vmbi5153_gclk_tb
+!s110 1516431446
+!i10b 1
+!s100 9C=@?YYo::[_eZZ]Cz6[<3
+Ii=4BOIQ[Kd2P7[3z6Joi62
+R0
+R1
+w1516335871
+8D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/source/mbi5153_top/mbi5153_gclk_tb.v
+FD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/source/mbi5153_top/mbi5153_gclk_tb.v
+L0 18
+R2
+r1
+!s85 0
+31
+!s108 1516431445.000000
+!s107 D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/source/mbi5153_top/mbi5153_gclk_tb.v|
+!s90 -reportprogress|300|-work|work_mbi5153_gclk|-stats=none|D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/source/mbi5153_top/mbi5153_gclk_tb.v|
+!i113 1
+o-work work_mbi5153_gclk
+R3

@@ -1,0 +1,60 @@
+﻿Field=#~Integer~#~50|Field=Index~String~Index~50|Field=Designator~String~Designator~100|Field=Description~String~Description~100|Field=Footprint~String~Footprint~100|Field=Quantity~Integer~Quantity~100|Field=Tolerance~String~Tolerance~100|Field=Layer~String~Layer~100|Field=SAP~String~SAP~100|Field=Category~String~Category~100|Field=Manufacturer~String~Manufacturer~100|Field=Manufacturer Part Number~String~Manufacturer Part Number~100|Field=Package~String~Package~100|Field=Price~String~Price~100|Field=Remarks~String~Remarks~100|Field=Supplier~String~Supplier~100|Field=Supplier Order Code~String~Supplier Order Code~100|Field=Type~String~Type~100|Field=Value~String~Value~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~LED_MAT_3.PRJPCB|ReportField=ProjectFullPath~D:\PROJECTS\LED_MATRIX\Design\PCB\LED_MAT_3\Release2\LED_MAT_3.PRJPCB|ReportField=Title~Advanced Bill of Materials For Variant [LED_MAT_3 - 2nd Run] of Project [LED_MAT_3.PRJPCB] (PCB Document : LED_MAT.PcbDoc)|ReportField=ReportTime~14:22:51|ReportField=ReportDate~07/09/2018|ReportField=ReportDateTime~07/09/2018 14:22:51|ReportField=OutputName~Advanced Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~LED_MAT_3 - 2nd Run|ReportField=TotalQuantity~203|ReportField=TotalActualPrice~0|ReportField=TotalTargetPrice~0|ReportField=VersionControl_RevNumber~|ReportField=VersionControl_ProjFolderRevNumber~460|ReportField=ProjectName~LED_MAT3|ReportField=Revision~2.0|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=ContentRev1~Original Document|ReportField=ContentRev2~Test pin added|ReportField=ContentRev3~|ReportField=ContentRev4~|ReportField=ContentRev5~|ReportField=ContentRev6~|ReportField=CurrentDate~07/09/2018|ReportField=CurrentTime~14:21:05|ReportField=Customer~BCM|ReportField=Date~|ReportField=dateREV1~"Aug/08/2018"|ReportField=dateREV2~"Sep/03/2018"|ReportField=dateREV3~|ReportField=dateREV4~|ReportField=dateREV5~|ReportField=dateREV6~|ReportField=DocumentFullPathAndName~D:\PROJECTS\LED_MATRIX\Design\PCB\LED_MAT_3\Release2\Top.SchDoc|ReportField=DocumentName~Top.SchDoc|ReportField=DocumentNumber~|ReportField=DocumentType~|ReportField=DocumentType1st~|ReportField=DocumentType2nd~|ReportField=DrawnBy~DS|ReportField=Engineer~DS|ReportField=ImagePath~|ReportField=ModifiedDate~05/09/2018|ReportField=NameRev1~V1|ReportField=NameRev2~V2|ReportField=NameRev3~|ReportField=NameRev4~|ReportField=NameRev5~|ReportField=NameRev6~|ReportField=NormInspection~|ReportField=Organization~BCM|ReportField=ProcessInspection~|ReportField=Project~LED_MAT_3|ReportField=Rev1~V1|ReportField=Rev2~V2|ReportField=Rev3~|ReportField=Rev4~|ReportField=Rev5~|ReportField=Rev6~|ReportField=Rule~|ReportField=SheetNumber~1|ReportField=SheetTotal~7|ReportField=Time~|ReportField=Title~Top Connections|ReportField=Title1st~|ReportField=Title2nd~|ReportField=DataSourceFileName~LED_MAT_3.PRJPCB|ReportField=DataSourceFullPath~D:\PROJECTS\LED_MATRIX\Design\PCB\LED_MAT_3\Release2\LED_MAT_3.PRJPCB|ReportField=PCBDataSourceFileName~LED_MAT.PcbDoc|ReportField=PCBDataSourceFullPath~D:\PROJECTS\LED_MATRIX\Design\PCB\LED_MAT_3\Release2\LED_MAT.PcbDoc|ReportField=PCBConfigurationName~Default Configuration|ReportField=Item~|ReportField=ItemRevision~|ReportField=ItemAndRevision~|ReportField=ItemRevisionBase~|ReportField=ItemRevisionLevel1~|ReportField=ItemRevisionLevel2~|ReportField=ItemRevisionLevel1AndBase~|ReportField=ItemRevisionLevel2AndLevel1~
+1|1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 28, 29, 35, 36, 91, 92, 96|C1_1, C1_2, C1_3, C2_1, C2_2, C2_3, C3_1, C3_2, C3_3, C4, C7, C23, C24, C31, C32, C90, C91, C95|Capacitor ceramic|CAPC1005L|18||Top|25311||SAMSUNG|CL05B104KO5NNNC|0402|0.2|||||100nF
+2|11, 30, 83, 84|C5, C25, C82, C83|Capacitor SMD|CAPC1608L|4|5%|Top|6269||SAMSUNG|CL21B104KBCNNNC|0805|0.07|||||100nF
+3|13, 14|C8, C9|Capacitor ceramic|CAPC1608L|2|5%|Top|27149|Capacitor|SAMSUNG|CL10C100JB8NNNC|0603|0.2||||COG|10pF
+4|15, 16, 31, 32, 89|C10, C11, C26, C27, C88|Capacitor ceramic|CAPC1608L|5|5%|Top|20669|Capacitor|MURATA|GRM1885C1H102JA01D|0603|0.2||||NPO|1nF
+5|17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 71, 73, 74, 77, 79, 81|C12, C13, C14, C15, C16, C17, C18, C19, C20, C21, C22, C33, C34, C35, C36, C37, C38, C39, C40, C41, C42, C43, C44, C45, C46, C47, C48, C49, C50, C52, C53, C54, C55, C56, C57, C58, C59, C61, C62, C64, C65, C66, C67, C69, C71, C72, C75, C77, C79|Capacitor ceramic|CAPC1005L|49||Bottom|25311||SAMSUNG|CL05B104KO5NNNC|0402|0.2|||||100nF
+6|33|C29|Capacitor SMD|CAPC2012L|1|20%|Top|21298||TDK|C2012X7R1C225K125AB|0805|0.63|||||2.2uF
+7|34|C30|Capacitor ceramic|CAPC1608L|1|5%|Bottom|27149|Capacitor|SAMSUNG|CL10C100JB8NNNC|0603|0.2||||COG|10pF
+8|55, 70, 72, 75, 76, 78, 80, 82|C51, C68, C70, C73, C74, C76, C78, C80|Capacitor ceramic|CAPC2012L|8||Bottom|28046, 15447||||0805|0.2|||||10uF
+9|85, 86, 87, 88, 90, 93|C84, C85, C86, C87, C89, C92|Capacitor ceramic|CAPC2012L|6||Top|28046, 15447||||0805|0.2|||||10uF
+10|94, 95|C93, C94|Capacitor ceramic|CAPC1608L|2||Top|21527||||0603|0.2|||||100nF
+11|97|DA1|Very low capacitance ESD protection|SOT95P280X110-6L|1||Top|27426||ST|USBLC6-2SC6||20|||||USBLC6-2
+12|98|DA2|2.5 MHz Dual Switching Regulator, 2A|TSOP65P640X110_HS320X320-16L|1||Top|19450||SEMTECH|SC2440TETRT|TSSOP-16|43.16|||||
+13|99|DA4|500mA, Low-Noise LDO Voltage Regulator|TI-DBV6_N|1|1%|None|16960||SIPEX|SPX3819M5-2-5|SOT23-5|5.2||||IC|SPX3819M5-2-5
+14|100, 101, 102, 103, 104, 105, 106, 107, 108|DD1_1, DD1_2, DD1_3, DD2_1, DD2_2, DD2_3, DD3_1, DD3_2, DD3_3|Octal 3-State Noninverting Bus Transceiver|PW020_N|9||Top|12529||NEXPERIA|SN74HCT245PW|SO-20|3.14|||||
+15|109|DD4|USB to UART bridge|QFN50P500X500-28V1N|1||Top|30088||SILICON|CP2102-GMR|QFN28|2|||||CP2102-GMR
+16|110|DD5|FPGA|BGA100P16X16-256|1||Top|XXX||ALTERA|10M40DCF256C7GA|BGA256|1800||ARROW|||
+17|111|DD6|M24C64-WMN6TP|SOIC127P600-8N|1|./.|Top|53437|I2C EEPROM|ST|M24C64-WMN6TP|SO8|7.02|./.|||M24C64-WMN6TP|M24C64-WMN6TP
+18|112, 114|IC1, IC3|Low Capacitance Transient Voltage   Suppressors Diode Array|SOT23-6 (DBV)|2||Top|32154|Diode|SEMTECH|SRV05-4.TCT|SOT23-6L|9.79|./.|Digikey|SRV05-4TR-ND||SRV05-4
+19|113|IC2|1K I2C Serial EEPROM|SOIC127P600-8N|1||Top|21600||MICROCHIP|24LC01BT-I/SN|SO-8|3.21|||||1Kbit E2PROM
+20|115|J1|USB-B|USB_B|1||Top|9663||AUK|USB2X02SR-H|USB-B|3.14|||||USB2X02SR-H
+21|116|JP1|Header, 3-Pin|HDR-1x3 SAP 10347|1|./.|Top|10347|Header|JIH VEI|21B1264-03S10-01G-6/3|Header 1x3, 2.54mm|0.125|replaceable|||Header 1x3, 2.54mm|Header 1x3, 2.54mm
+22|117, 122|L1, L10|Power choke|IND_CD43|2||Top|25396||TAIYO YUDE|NR4018T2R2M|0404|3.14|||||2.2uH
+23|118|L2|Ferrite bead|INDC2012L|1||Top|24778||Murata|BLM21PG221SN1|0805|0.06|||||
+24|119|L3|General 0402 - type Chip Inductor|INDC1005L|1||Top|23111||Murata|BLM15AG601SN1|0402|0.05|||||
+25|120, 121|L4, L5|Ferrite bead|INDC2012L|2||Bottom|24778||Murata|BLM21PG221SN1|0805|0.06|||||
+26|123|L11|Ferrite bead|INDC2012L|1||Top|24778||Murata|BLM21PG221SN1|0805|0.06|||||
+27|124|P2||OUPIN 2345-40|1||Top|9837||OUPIIN|2345-40TD1T||1|||||FFC connector/40P/Female/Top contact
+28|125, 126, 127|P3_1, P3_2, P3_3|Header, 10-Pin, Dual row, Right Angle|HDR2X10H|3||Top||||||.5|||||
+29|128|P4|Header, 8-Pin, Dual row, Right Angle|HDR2X8H|1||Top||||||.5|||||
+30|129|PCB|PNEC_Bridge_v1 PCB/FR4/1.55mm/8L/ENIG||1|./.|None|XXX|PCB|./.|./.|70x127.5x1.6mm 6 Layers|60|./.|./.|./.|70x127.5x1.6mm 6 Layers|70x127.5x1.6mm 6 Layers
+31|130, 131|R1, R2|Resistor SMD|RESC1608L|2|5%|Top|20660||YAGEO|RC0805FR075K1L|0805|0.07|||||5.1k
+32|132, 133, 135, 137, 140, 141, 143, 144, 145, 154, 155, 162, 163, 166, 168, 169, 170, 175, 176, 177, 178, 179, 180, 181, 182, 183|R3, R4, R6, R8, R11, R12, R15, R16, R17, R27, R28, R35, R36, R40, R42, R43, R44, R51, R52, R53, R54, R55, R56, R57, R58, R59|Resistor|RESC1608L|26|1%|Top|3616, 12611, 12657, 14053||||0603|0.02|||||10k
+33|134, 139, 142, 146, 156, 174, 184|R5, R10, R14, R18, R29, R48, R60|Resistor|RESC1608L|7|1%|Top|3716, 12598, 14067||||0603|0.02|replaceable||||1k
+34|136, 138, 150, 153|R7, R9, R23, R26|10R / 1% / 0603|RESC1608L|4|1%|Top|4437|Resistor|YAGEO|RC0603FR-0710RL|0603|0.02|replaceable|./.|./.||10R
+35|147|R19|Resistor|RESC1608L|1||Top|14209||YAGEO|RC0603FR-070RL|0603|0.02|replaceable||||0R
+36|148, 149|R21, R22|4.7k / 1% / 0603|RESC1608L|2|1%|Top|3760|Resistor|YAGEO|RC0603FR-074K7L|0603|0.02|replaceable|./.|./.||4.7k
+37|151|R24|16.9k / 1% / 0603|RESC1608L|1|1%|Top|44575|Resistor|YAGEO|RC0603FR0716K9L|0603|0.02|replaceable|./.|./.||16.9k
+38|152, 159, 160, 161|R25, R32, R33, R34|Resistor|RESC1608L|4|1%|Bottom|3616, 12611, 12657, 14053||||0603|0.02|||||10k
+39|157|R30|13.3k / 1% / 0603|RESC1608L|1|1%|Top|24784|Resistor|YAGEO|RC0603FR-0713K3L|0603|0.03|replaceable|./.|./.||13.3k
+40|158, 171, 172, 173|R31, R45, R46, R47|0 / 1% / 0603|RESC3216L, RESC1608L|4|1%|Top|54293|Resistor|YAGEO|RC0603FR-072KL|0603|0.02|replaceable|./.|./.||0
+41|164|R37|15k / 1% / 0603|RESC1608L|1|1%|Bottom|50840|Resistor|YAGEO|RC0603FR-0715KL|0603|0.03|replaceable|./.|./.||15k
+42|165|R39|2k / 1% / 0603|RESC1608L|1|1%|Top|54293|Resistor|YAGEO|RC0603FR-072KL|0603|0.02|replaceable|./.|./.||2k
+43|167|R41|23.7k / 1% / 0603|RESC1608L|1|1%|Top|48380|Resistor|YAGEO|RC0603FR-0723K7L|0603|0.02|replaceable|./.|./.||23.7k
+44|185|S1|Microminiature Tact Switch for SMT|SW4SMD_63X161LS|1|./.|Top|34851|Switch|C&K Components|KMR211GLFS|KMR211GLFS|4.71|./.|Digikey|401-1426-2-ND|KMR211GLFS|KMR211GLFS
+45|186|SW1|DIP SW 4pol, 1.27mm|Dipswitch 4 SO8 a|1|1%|Top|22496|Switch|SWITRONIC|DSHP04SSGER-G|SO-8|13.08|replaceable||||DSHP04SSGER-G
+46|187|U1|PanelBus DVI Receiver 165MHz, HSYNC fix|100 LQFP (14x14)|1||Top|XXX||TI|TFP401A|TQFP-100|7.02|||||
+47|188|U2|32Mbit Quad Serial Flash in SOIC W package|SOIC127P800X216-8L|1|./.|Top|55399|IC|WINBOND|W25Q32JVSSIQ|SO-8 WIDE|30|W25Q32JVSSIQ|ARROW|W25Q32JVSSIQ|SO|W25Q32JVSSIQ
+48|189|U3|3V VOLTAGE SUPERVISOR|SOT-143|1||Top|55315|IC|MICROCHIP|MIC6315-30D2UY|SOT-143|12|Power Monitor IC|Mouser|998-MIC6315-30D2UYTR||MIC6315-30D2UY
+49|190|U4|Bidirectional Translator|TSSOP65-8L - DCT (R-PDSO-G8)|1||Top|39541||TI|PCA9306DCT|TSOP-8|22.5||||IC|PCA9306DCT
+50|191, 192|VD1, VD2|SMD LED GREEN|LED3216X10L|2||Top|54527||KINGBRIGHT|KP-3216MGC|3216|3.5||||Green|
+51|193|VD3|SMD LED YELLOW|LED3216X10L|1||Top|41324||KINGBRIGHT|KP-3216SYC|3216|4.34||||Yellow|
+52|194|VD4|Shottky restifiers, 2A, SMA Package|DO-214AC(SMA)|1||Top|1869||DIODES|B340A|DO214AC|1|||||B340A
+53|195, 196|VD5, VD6|Fast switching diode|SOD123|2||Top|16897||VISHAY|1N4148WS-E3-08|SOD323|0.35|||||1N4148WS
+54|197, 198|VD7, VD8|Shottky restifiers, 2A, SMA Package|DO-214AC(SMA)|2||Top|1869||DIODES|B340A|DO214AC|1.4||||Diode|B340A
+55|199|VD9|Photocoupler, SOP package|PS2705A-1|1||Top|33748||RENESAS|PS2705A-1-F3-A|SOP-4|4.16|||||PS2705A-1-F3-A
+56|200|X1|2-pin HPWR connector|ME030-508-02|1||Top|9739||DECA SWITC|ME030-508-02||3.21|||||ME030-508-02
+57|201|X10|DVI Connector|DVI 29pol / Female Insertion / 90°|1||Top|22417||AMTEK|DVIR-F29SWND-L|DVI / 29pole / 90°|1|||||Molex_743201004
+58|202|XP1|Header, 5-Pin, Dual row|PLD10|1||Top|28254||FCI|||.1||||Connector|
+59|203|Y1|SMD Oscillator with Stop Function|SMD03025/4CC|1|25ppm|Top|8042||YOKETANT|SO3225-025000-FIE-BBA-A1|3225|10|||||25MHz

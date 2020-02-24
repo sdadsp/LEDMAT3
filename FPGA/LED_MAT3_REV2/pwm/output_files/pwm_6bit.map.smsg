@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at pwm.v(47): always construct contains both blocking and non-blocking assignments File: D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/pwm/source/pwm.v Line: 47

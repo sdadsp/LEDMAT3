@@ -1,0 +1,127 @@
+// Author:  Dim Su
+// test for mbi5153_commands
+
+`timescale 1 ns/ 10 ps
+module mbi5153_commands_tst();
+// constants                                           
+// general purpose registers
+
+// test vector input registers
+reg CLK;
+reg RESET;
+reg [3:0] CMD;
+reg [15:0] DATA;
+reg REQUEST;
+// wires                                               
+wire READY;
+wire ACTIVE;
+wire DCLK;
+wire LATCH;
+wire Q;
+
+wire CMD_DONE;
+
+`include "..\mbi5153_common\mbi5153_defines.vh"
+
+// DUT inst.
+mbi5153_commands
+#( .NUM_IC_CHAIN(1) )
+mbi5153_cmd_inst1
+// port map - connection between master ports and signals/registers   
+(
+ .CLK (CLK),
+ .RESET (RESET),
+ .REQUEST (REQUEST),
+ .CMD (CMD),
+ .DATA (DATA),
+ 
+ .READY (READY),
+ .ACTIVE (ACTIVE),
+ .DCLK (DCLK),
+ .LATCH (LATCH),
+ .Q (Q),
+ .CMD_DONE (CMD_DONE)
+);
+
+// main test stimilus 
+initial                                                
+begin
+ $display("Running testbench");                       
+
+ CLK = 0;
+ RESET = 1'b1;
+ DATA = 16'h0;
+ CMD = 4'h0;
+ REQUEST = 1'b0;
+ 
+ #50 RESET = 0;
+
+ DATA = 16'hAA55;
+ CMD = CMD_STOP_CED;
+ #50 REQUEST = 1'b1;
+ #50 REQUEST = 1'b0;
+
+ wait (CMD_DONE == 1'b1);
+ DATA = 16'h0;
+ #200
+ DATA = 16'hAA55;
+ CMD = CMD_DL;
+ #50 REQUEST = 1'b1;
+ #50 REQUEST = 1'b0;
+
+ wait (CMD_DONE == 1'b1);
+ DATA = 16'h0;
+ #200
+ DATA = 16'hAA55;
+ CMD = CMD_VSYNC;
+ #50 REQUEST = 1'b1;
+ #50 REQUEST = 1'b0;
+
+ wait (CMD_DONE == 1'b1);
+ DATA = 16'h0;
+ #200
+ DATA = 16'hAA55;
+ CMD = CMD_WRC1;
+ #50 REQUEST = 1'b1;
+ #50 REQUEST = 1'b0;
+
+ wait (CMD_DONE == 1'b1);
+ DATA = 16'h0;
+ #200
+ DATA = 16'hAA55;
+ CMD = CMD_RDC1;
+ #50 REQUEST = 1'b1;
+ #50 REQUEST = 1'b0;
+
+ wait (CMD_DONE == 1'b1);
+ DATA = 16'h0;
+ #200
+ DATA = 16'hAA55;
+ CMD = CMD_START_CED;
+ #50 REQUEST = 1'b1;
+ #50 REQUEST = 1'b0;
+
+ wait (CMD_DONE == 1'b1);
+ DATA = 16'h0;
+ #200
+ DATA = 16'hAA55;
+ CMD = CMD_PREA;
+ #50 REQUEST = 1'b1;
+ #50 REQUEST = 1'b0;
+
+ #50000 $stop;
+ 
+end                                                    
+
+initial
+begin
+end
+
+// clock
+always                                                 
+begin                                                  
+ #25 CLK = ! CLK; // 20MHz clock
+end
+
+endmodule
+

@@ -1,0 +1,9 @@
+ parameter PIXEL_DEPTH = 3, 
+ parameter PANELS_NUM = 2,
+ parameter PANEL_WIDTH  = 8, 
+ parameter MULTIPLEX_RATIO = 4,
+ parameter MEM_DATA_WIDTH = 18,
+ parameter MEM_ADDR_WIDTH = 4,
+ parameter PWM_QUANTUM = 2
+
+CLK =  20MHz

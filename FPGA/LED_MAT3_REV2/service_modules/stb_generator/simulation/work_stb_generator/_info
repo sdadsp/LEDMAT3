@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/17.0
+vstrobe_gen_1k_50_5_1
+Z0 !s110 1516684684
+!i10b 1
+!s100 4fe8bQ69`N;f55h^YeaY`0
+IgY@hREnGfDEWVCmQ@NICF2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/simulation
+w1516684648
+8D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1.v
+FD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1.v
+L0 11
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1516684684.000000
+!s107 D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1.v|
+!s90 -reportprogress|300|-work|work_stb_generator|-stats=none|D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1.v|
+!i113 1
+Z5 o-work work_stb_generator
+Z6 tCvgOpt 0
+vstrobe_generator_tb
+R0
+!i10b 1
+!s100 118L>=2L^;2U8RH<:Rejz3
+ITbH9Q>kzc[km]N8^]hY_U1
+R1
+R2
+w1516684003
+8D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1_tb.v
+FD:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1_tb.v
+L0 10
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1_tb.v|
+!s90 -reportprogress|300|-work|work_stb_generator|-stats=none|D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/service_modules/stb_generator/source/strobe_gen_1k_50_5_1_tb.v|
+!i113 1
+R5
+R6

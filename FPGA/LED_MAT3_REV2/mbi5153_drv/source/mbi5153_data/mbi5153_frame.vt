@@ -1,0 +1,134 @@
+// testbench for the 'mbi5153_frame.v' + 'mbi5153_data.v' module
+// as a result we are expecting to see the transfer of the frame
+// Author:  Dim Su
+// date: 20171219
+
+`timescale 1 ns / 10 ps
+
+module mbi5153_frame_tb();
+
+// test/debug values:
+parameter number_ics = 4; // number of the ICs in the chain
+parameter number_chs = 16; // number of the channels (outputs) per 1 IC
+parameter width_line_addr = 6; //$log2(number_chs*number_ics);
+parameter width_base_addr = 14; //$log2(number_chs*number_ics*scan_ratio);
+parameter number_bits = 16;// number of the bits in the data word (normally 16)
+
+// test vector input registers
+reg CLK;
+reg RESET;
+reg [23:0] DATA;
+reg REQUEST;
+
+// wires                                               
+wire DCLK;
+wire LATCH;
+wire R, G, B;
+
+wire REQUEST_TO_SEND_LINE;
+
+wire FRAME_TX_READY, FRAME_TX_DONE, FRAME_TX_ACTIVE;
+wire LINE_TX_READY,  LINE_TX_DONE,  LINE_TX_ACTIVE;
+
+wire [width_line_addr-1:0] LINE_ADDR; 
+wire [width_base_addr-1:0] BASE_ADDR; 
+reg  [width_base_addr-1:0] ADDR; 
+
+//******************************************************************************
+// DUT #1 - Line transmitter
+mbi5153_data
+#(
+ .NUM_IC_CHAIN (number_ics),   // number of the ICs in the chain
+ .NUM_CH_IC  (number_chs),     // number of the outputs/channels per one IC 
+ .IC_WORD_LENGTH (number_bits),// number of bits per 1 data word (normally 16)
+ .RGB_LSB (8'h55)
+)
+mbi5153_data_inst
+(
+ .CLK (CLK), .RESET (RESET),
+ .REQUEST (REQUEST_TO_SEND_LINE),
+ 
+ .ADDR (LINE_ADDR), .DATA (DATA), // offset address (output) and pixel data (input)
+ 
+ .READY (LINE_TX_READY), .ACTIVE (LINE_TX_ACTIVE), // outputs
+
+ .DCLK (DCLK), .LATCH (LATCH),
+ .R (R), .G (G), .B (B),
+
+ .TX_DONE (LINE_TX_DONE)
+);
+
+//******************************************************************************
+// DUT #2 - Frame transmitter
+mbi5153_frame
+#(
+ .EXT_RAM_BASE_ADDR (0),
+ .NUM_CH_IC (number_chs),
+ .NUM_IC_CHAIN (number_ics),
+ .ADDR_WIDTH  (8) 
+)
+mbi5153_frame_inst
+(
+ .CLK (CLK), .RESET (RESET),
+ .REQUEST (REQUEST),           // request to send a frame
+ .SCAN_RATIO (5'd3),           // scan ratio ([number of the lines - 1]: i.e. 3 - means 4 lines!) 
+ .LINE_READY (LINE_TX_READY),  // Line Transmitter (mbi5153_data) is ready
+ .LINE_TX_DONE (LINE_TX_DONE), // Line transmitted
+  
+ .READY (FRAME_TX_READY),      // the REQUEST may be applied when this signal is active
+ .ACTIVE (FRAME_TX_ACTIVE),    // shows that the cmd execution is running
+ .FRAME_TX_DONE(FRAME_TX_DONE),// this strobe shows that the frame is comletely sent
+ .REQUEST_TO_SEND_LINE (REQUEST_TO_SEND_LINE),
+ .ADDR (BASE_ADDR)             // current base address of the external memory 
+                              
+);
+
+//******************************************************************************
+// main test stimilus 
+initial                                                
+ begin
+ $display("Running testbench");                       
+
+ CLK = 0;
+ RESET = 1'b1;
+ DATA = 24'h0;
+ REQUEST = 1'b0;
+ 
+ #50 RESET = 0;
+
+ DATA = 24'hA3A3A3;
+ 
+ #50 REQUEST = 1'b1;
+ #50 REQUEST = 1'b0;
+
+
+/* 
+ wait (READY == 1'b0);
+ wait (READY == 1'b1);
+
+ CH_NUM = number_chs - 1;
+ #50  REQUEST = 1'b1;
+ #100 REQUEST = 1'b0;
+*/
+ 
+ #1000000  $display("Simulation Paused");  
+ $stop;
+ 
+ end                                                    
+
+//******************************************************************************
+// clock
+always                                                 
+ begin                                                  
+  #25 CLK = ! CLK; // 20MHz clock
+ end
+ 
+//******************************************************************************
+// RAM address
+always @*
+ ADDR = BASE_ADDR + LINE_ADDR;
+
+//******************************************************************************
+ 
+endmodule
+

@@ -1,0 +1,86 @@
+                                                                               
+// Verilog Test Bench template for design : hub75_drv
+// 
+// Simulation tool : ModelSim-Altera (Verilog)
+// 
+
+`timescale 1 ns/ 1 ns
+module hub75_drv_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg CLK_PWM;
+reg [17:0] MEM_DATA;
+reg CLK;
+reg RESET;
+// wires                                               
+wire [2:0] FSM;
+wire [2:0] PWM_BIT_NUM;
+wire [7:0] PWM_STEP;
+wire [7:0] PWM_WAIT_CNT;
+wire [3:0] PWM_QUANTUM_CNT;
+wire [4:0] HUB_ADDR;
+wire [1:0] HUB_R;
+wire [1:0] HUB_G;
+wire [1:0] HUB_B;
+wire [3:0] MEM_ADDR;
+wire HUB_SCLK;
+wire HUB_LATCH;
+wire HUB_OE;
+wire MEM_RD;
+
+// assign statements (if any)                          
+hub75_drv i1 (
+// port map - connection between master ports and signals/registers   
+	.HUB_ADDR(HUB_ADDR),
+	.CLK(CLK),
+	.CLK_PWM(CLK_PWM),
+	.MEM_ADDR(MEM_ADDR),
+	.MEM_DATA(MEM_DATA),
+	.MEM_RD(MEM_RD),
+	.HUB_R(HUB_R),
+	.HUB_G(HUB_G),
+	.HUB_B(HUB_B),
+	.HUB_SCLK(HUB_SCLK),
+	.HUB_LATCH(HUB_LATCH),
+	.HUB_OE(HUB_OE),
+	.RESET(RESET),
+   .FSM(FSM),
+   .PWM_BIT_NUM(PWM_BIT_NUM),
+   .PWM_WAIT_CNT(PWM_WAIT_CNT),
+	.PWM_QUANTUM_CNT(PWM_QUANTUM_CNT),
+	.PWM_STEP(PWM_STEP)
+);
+
+initial                                                
+begin                                                  
+// code that executes only once                        
+// insert code here --> begin                          
+ 
+ CLK = 0;
+ RESET = 1;
+ MEM_DATA = 18'b010_101_010_010_101_010;
+ CLK_PWM = 0;
+ eachvec = 0;
+ 
+ #50 RESET = 0;
+ 
+ #100000 $stop;
+ 
+// --> end                                             
+$display("Running testbench");                       
+end                                                    
+always                                                 
+// optional sensitivity list                           
+// @(event1 or event2 or .... eventn)                  
+begin                                                  
+
+ #25 CLK = ! CLK; // 20MHz clock
+
+ 
+// @eachvec;                                              
+// --> end                                             
+end                                                    
+endmodule
+

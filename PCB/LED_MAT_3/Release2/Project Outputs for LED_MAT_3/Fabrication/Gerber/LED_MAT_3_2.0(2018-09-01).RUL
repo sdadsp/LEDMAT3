@@ -1,0 +1,7 @@
+DRC Rules Export File for PCB: D:\PROJECTS\LED_MATRIX\Design\PCB\LED_MAT_3\Release2\LED_MAT.PcbDoc
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion_75um|Scope=Board|Minimum=2.95
+RuleKind=Clearance|RuleName=Clearance_1|Scope=Board|Minimum=7.87
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=7.87
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=7.87
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=3.94

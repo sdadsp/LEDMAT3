@@ -1,0 +1,18 @@
+Fitter Status : Successful - Fri Sep 01 09:17:49 2017
+Quartus Prime Version : 17.0.1 Build 598 06/07/2017 SJ Lite Edition
+Revision Name : hub75_drv
+Top-level Entity Name : hub75_drv
+Family : MAX 10
+Device : 10M08DAF484C8G
+Timing Models : Final
+Total logic elements : 117 / 8,064 ( 1 % )
+    Total combinational functions : 113 / 8,064 ( 1 % )
+    Dedicated logic registers : 45 / 8,064 ( < 1 % )
+Total registers : 45
+Total pins : 66 / 250 ( 26 % )
+Total virtual pins : 0
+Total memory bits : 0 / 387,072 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 48 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

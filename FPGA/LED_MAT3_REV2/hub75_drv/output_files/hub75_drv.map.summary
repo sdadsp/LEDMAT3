@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Fri Sep 01 09:17:31 2017
+Quartus Prime Version : 17.0.1 Build 598 06/07/2017 SJ Lite Edition
+Revision Name : hub75_drv
+Top-level Entity Name : hub75_drv
+Family : MAX 10
+Total logic elements : 116
+    Total combinational functions : 112
+    Dedicated logic registers : 45
+Total registers : 45
+Total pins : 66
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

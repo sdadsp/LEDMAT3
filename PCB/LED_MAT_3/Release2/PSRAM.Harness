@@ -1,0 +1,1 @@
+PSRAM=A[0..18],IO[0..15],CS,WE,OE,LB,UB

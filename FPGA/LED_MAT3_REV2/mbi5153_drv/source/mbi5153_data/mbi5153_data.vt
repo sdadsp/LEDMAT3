@@ -1,0 +1,128 @@
+// test for the data-sending part
+// Author:  Dim Su
+// 20180116
+
+`timescale 1 ns/ 10 ps
+module mbi5153_data_tst();
+
+// test/debug values:
+parameter number_ics = 4; // number of the ICs in the chain
+parameter number_chs = 16; // number of the channels (outputs) per 1 IC
+parameter width_addr = 6; //$log2(number_chs*number_ics);
+parameter number_bits = 16;// number of the bits in the data word (normally 16)
+
+// test vector input registers
+reg CLK;
+reg RESET;
+reg [23:0] DATA;
+reg REQUEST;
+
+// wires                                               
+wire READY;
+wire ACTIVE;
+wire DCLK;
+wire LATCH;
+wire R, G, B;
+
+wire TX_DONE;
+wire [width_addr-1:0] ADDR; 
+
+// DUT instatiation
+mbi5153_data
+#(
+ .NUM_IC_CHAIN (number_ics),   // number of the ICs in the chain
+ .NUM_CH_IC  (number_chs),     // number of the outputs/channels per one IC 
+ .IC_WORD_LENGTH (number_bits),// number of bits per 1 data word
+ .RGB_LSB (8'h55)
+)
+mbi5153_data_inst
+(
+ .CLK (CLK), .RESET (RESET),
+ .REQUEST (REQUEST),
+ 
+ .ADDR (ADDR), .DATA (DATA),
+ 
+ .READY (READY), .ACTIVE (ACTIVE),
+
+ .DCLK (DCLK), .LATCH (LATCH),
+ .R (R), .G (G), .B (B),
+
+ .TX_DONE (TX_DONE)
+);
+
+// clock
+always                                                 
+ begin                                                  
+  #50 CLK = ! CLK; // 20MHz clock
+ end
+
+// main test stimilus 
+initial                                                
+ begin
+ $display("Running testbench");                       
+
+ CLK = 0;
+ RESET = 1'b1;
+ DATA = 24'h0;
+ REQUEST = 1'b0;
+// CH_NUM = number_chs;
+ 
+ #100 RESET = 0;
+
+ DATA = 24'hA3A3A3;
+ 
+ #100 REQUEST = 1'b1;
+ #100 REQUEST = 1'b0;
+
+
+/* 
+ wait (READY == 1'b0);
+ wait (READY == 1'b1);
+
+ CH_NUM = number_chs - 1;
+ #50  REQUEST = 1'b1;
+ #100 REQUEST = 1'b0;
+*/
+ 
+ #1000000  $display("Simulation Paused");  
+ $stop;
+ 
+ end                                                    
+
+/*
+always @(posedge CLK or posedge RESET)
+ if(RESET)
+  begin
+   REQUEST <= 0;
+  end
+  else
+   begin
+    if (READY)
+     #100
+	 begin
+	  REQUEST <= 1;
+	 end
+	 else
+	  REQUEST <= 0;
+   end
+
+reg [1:0] request_delay;
+always @(posedge CLK)
+ request_delay <= {request_delay[0], REQUEST};
+
+always @(posedge CLK or posedge RESET)
+ if(RESET)
+  begin
+   CH_NUM <= number_chs + 1; 
+  end
+  else
+   begin
+    if (request_delay == 2'b01)
+          CH_NUM <= CH_NUM - 1;
+	 //else CH_NUM <= CH_NUM;
+
+   end
+*/
+
+endmodule
+

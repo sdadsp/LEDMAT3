@@ -1,0 +1,8 @@
+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/simulations/mbi5153_data/mbi5153_data.vt {1 {vlog -work work_mbi5153_data -stats=none D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/simulations/mbi5153_data/mbi5153_data.vt
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mbi5153_data_tst
+
+Top level modules:
+	mbi5153_data_tst
+
+} {} {}}

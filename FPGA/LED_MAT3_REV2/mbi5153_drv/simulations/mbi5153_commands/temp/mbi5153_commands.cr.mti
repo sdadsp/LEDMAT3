@@ -1,0 +1,15 @@
+D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/simulations/mbi5153_commands/mbi5153_commands.v {1 {vlog -work work_mbi5153_commands -stats=none D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/simulations/mbi5153_commands/mbi5153_commands.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mbi5153_commands
+
+Top level modules:
+	mbi5153_commands
+
+} {} {}} D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/simulations/mbi5153_commands/mbi5153_commands.vt {1 {vlog -work work_mbi5153_commands -stats=none D:/PROJECTS/LED_MATRIX/Design/P2_LED_DRV/mbi5153_drv/simulations/mbi5153_commands/mbi5153_commands.vt
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mbi5153_commands_tst
+
+Top level modules:
+	mbi5153_commands_tst
+
+} {} {}}
