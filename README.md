@@ -31,4 +31,6 @@ The USB-VCP port allows to control the basic LED display parameters without reco
 
 #### Other basic panels' configurations may be set via the project defines.
 
+#
+
 ![alt text](DOCS/current_concept.png "FPGA Architecture")
