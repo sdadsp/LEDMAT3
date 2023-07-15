@@ -60,7 +60,7 @@ outbuf_dpram_inst2 (
  .wren ( WR_ENA[1] ), 
  .q ( OUTBUF_OUT_DATA[1] )
 );
-
+/*
 // Bot
 outbuf_dpram
 # ( //.INIT_MIF ("../outbuf_dpram/image3_bot.mif"),
@@ -78,5 +78,5 @@ outbuf_dpram_inst3 (
  .wren ( WR_ENA[2] ), 
  .q ( OUTBUF_OUT_DATA[2] )
 );
-
+*/
 endmodule

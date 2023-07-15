@@ -4,6 +4,7 @@
 //  Author: Dim Su
 //  History Release:
 //  20180829 - Initial version (1.0)
+//  20230623 - HPD Trig option (REG_08)
 //
 //==============================================================================
 
@@ -24,6 +25,8 @@ module led_mat_core(
  input [7:0]  DPI_R,
  input [7:0]  DPI_G,
  input [7:0]  DPI_B,
+ 
+ output       HPD_TRIG,
 	
  output [2:0] HUB1_R, HUB1_G, HUB1_B,
  output [2:0] HUB2_R, HUB2_G, HUB2_B,
@@ -99,7 +102,7 @@ wire       hub0_clk_ena;
            
 wire [2:0] hub0_fsm;
 
-// PWM for brightness control
+// PWM for brightness control (for conventional drivers like MBI5124, ICN2038, etc.)
 wire       pwm_out;
 wire       hub0_oe_pwm;
 
@@ -127,6 +130,7 @@ wire sda_in, scl_in, sda_oe, scl_oe;
 // PLL clocks
 wire clk_100M, clk_80M, clk_50M, clk_25M, clk_pll_2xdclk, clk_pll_dclk, clk_1152k;
 // PLL signals
+wire pll_gen_reset;
 wire pll_video_input_activeclock;
 wire clk_25M_bad, dpi_pclk_bad;
 wire pll_video_input_locked;
@@ -262,7 +266,7 @@ assign LED[7:3] = 6'b111111;
 wire [15:0] regfile_out [31:0];
 wire [15:0] regfile_in  [31:0];
 
-wire [7:0]                      gctrl;       // global control bits 
+wire [15:0]                     gctrl;       // global control bits 
 wire [BRIGHTNESS_PWM_DEPTH-1:0] brightness;  // global brightness - 32 levels (to modulate OE signal)
 wire [IMAGE_WIDTH_MAX_LOG2-1:0] image_width; // image width 
 wire [5:0]                      scan_ratio;  // 1/1..1/32 scan ratio; 0..32 for MBI5124, 0..31 for MBI5153
@@ -270,10 +274,16 @@ wire [NUM_LANES_WIDTH-1:0]      num_lanes;   // up to 4 rows (e.g. there are 2 r
 wire [PWM_QUANTUM_WIDTH-1:0]    pwmq;        // PWM quantum
 wire [10:0]                     roi_x0;
 wire [9:0]                      roi_y0;
+wire                            hpd_trig_func; // Hot Plug Detect as Sync-Out (HPD/BL_ON will act as the Output Trigger when the Image is active)
+
+// GCTRL register bits' groups
+wire [1:0] gctrl_tpg   = gctrl[6:5];
+wire [1:0] gctrl_color = gctrl[9:8];
+wire       auto_resp   = gctrl[15];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // assign control registers:
-assign gctrl        = regfile_out[0][7:0];
+assign gctrl        = regfile_out[0][15:0];
 assign brightness   = regfile_out[1][BRIGHTNESS_PWM_DEPTH-1:0];
 assign image_width  = regfile_out[2][IMAGE_WIDTH_MAX_LOG2-1:0];
 assign scan_ratio   = regfile_out[3][5:0];
@@ -281,6 +291,7 @@ assign num_lanes    = regfile_out[4][NUM_LANES_WIDTH-1   :0];
 assign pwmq         = regfile_out[5][PWM_QUANTUM_WIDTH-1:0];
 assign roi_x0       = regfile_out[6][10:0];
 assign roi_y0       = regfile_out[7][ 9:0];
+assign hpd_trig_func= regfile_out[8][   0];
 
 assign data_rcfg1_r = regfile_out[16], data_rcfg1_g = regfile_out[17], data_rcfg1_b = regfile_out[18];
 assign data_rcfg2_r = regfile_out[19], data_rcfg2_g = regfile_out[20], data_rcfg2_b = regfile_out[21];
@@ -289,14 +300,16 @@ assign data_rcfg3_r = regfile_out[22], data_rcfg3_g = regfile_out[23], data_rcfg
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // registers mapping and reset values:
 // CONTROL registers (r/w)
-assign regfile_in[0]  = gctrl;         parameter REG_0_RST_VALUE = 3;
-assign regfile_in[1]  = brightness;    parameter REG_1_RST_VALUE = BRIGHTNESS_PWM_MAX/2 - 2; // defaul brightness - works for MBI5124/ICN2038
+assign regfile_in[0]  = gctrl;         parameter REG_0_RST_VALUE = 16'b1000_0000_0000_0011;
+assign regfile_in[1]  = brightness;    parameter REG_1_RST_VALUE = 2; // BRIGHTNESS_PWM_MAX/2 - 2; // default brightness - works for MBI5124/ICN2038
 assign regfile_in[2]  = image_width;   parameter REG_2_RST_VALUE = IMAGE_WIDTH_RST_VAL;
 assign regfile_in[3]  = scan_ratio;    parameter REG_3_RST_VALUE = DEFAULT_SCAN_RATIO;
 assign regfile_in[4]  = num_lanes;     parameter REG_4_RST_VALUE = PANEL_LANES;
-assign regfile_in[5]  = pwmq;          parameter REG_5_RST_VALUE = PWM_QUANTUM_MAX/2;
+assign regfile_in[5]  = pwmq;          parameter REG_5_RST_VALUE = 2; // PWM_QUANTUM_MAX/2;
 assign regfile_in[6]  = roi_x0;        parameter REG_6_RST_VALUE = ROI_X0;
 assign regfile_in[7]  = roi_y0;        parameter REG_7_RST_VALUE = ROI_Y0;
+assign regfile_in[8]  = hpd_trig_func; parameter REG_8_RST_VALUE = 0;
+
 
 assign regfile_in[16] = data_rcfg_r[0];parameter REG_16_RST_VALUE = RST_VAL_DATA_RCFG1_R;
 assign regfile_in[17] = data_rcfg_g[0];parameter REG_17_RST_VALUE = RST_VAL_DATA_RCFG1_G;
@@ -307,6 +320,8 @@ assign regfile_in[21] = data_rcfg2_b;  parameter REG_21_RST_VALUE = RST_VAL_DATA
 assign regfile_in[22] = data_rcfg3_r;  parameter REG_22_RST_VALUE = RST_VAL_DATA_RCFG3_R;
 assign regfile_in[23] = data_rcfg3_g;  parameter REG_23_RST_VALUE = RST_VAL_DATA_RCFG3_G;
 assign regfile_in[24] = data_rcfg3_b;  parameter REG_24_RST_VALUE = RST_VAL_DATA_RCFG3_B;
+
+
 
 // STATUS registers (read-only)
 assign regfile_in[25]  = dpi_frequency;
@@ -332,14 +347,41 @@ assign lane_height = scan_ratio;
 assign lane_height = scan_ratio + 1;
 `endif
 
+// --- HPD/TRIG output ---
+// PON delay
+reg [3:0] pon_delay_reg;
+reg pon_dly_done;
+wire dly_rst = ~pll_gen_reset;
+`define PON_DELAY 3
+always @(posedge clk_pll_dclk or posedge dly_rst)
+ if (dly_rst)
+   begin             pon_delay_reg <= 0; pon_dly_done <= 0; end
+ else
+   begin
+//	  if(pon_delay_reg == 0) pon_dly_done <= 0;
+//	  else
+	  if(strobe_1hz)
+	   begin
+		 if(  pon_delay_reg == `PON_DELAY)   pon_dly_done <= 1;
+		 else	pon_delay_reg <= pon_delay_reg + 1;
+	   end
+	end
+	 
+// HPD break out  
+wire tpg_black  = (gctrl_tpg == 2'b10);
+wire hpd_trig   = hpd_trig_func ? (tpg_black ? 1'b0 : 1'b1) : 1'b1;
+assign HPD_TRIG =  pon_dly_done ? hpd_trig : 1'b0;
+
 //------------------------------------------------------------------------------
 //  Structural coding
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 // PLL for the basic system clocks
+// MCLK_IN = 25M, clk_100M = 100M, clk_25M = 25M, clk_pll_2xdclk = 16M, clk_pll_dclk = 8M, clk_1152k - 1.152M
 pll1	pll1_inst
  (	.areset (1'b0), .inclk0 (MCLK_IN),	.c0 (clk_100M), .c1 (clk_25M),
-   .c2 (clk_pll_2xdclk), .c3 (clk_pll_dclk),	.c4 (clk_1152k)
+   .c2 (clk_pll_2xdclk), .c3 (clk_pll_dclk),	.c4 (clk_1152k),
+	.locked(pll_gen_reset)
  );
 
 
@@ -613,11 +655,13 @@ wire [OUTBUF_ADDR_WIDTH-1:0]    outbuf_in_addr  [`NUMBER_OF_MEM_BLOCKS-1:0];// =
 wire [OUTBUF_DATA_WIDTH-1:0]    outbuf_out_data [`NUMBER_OF_MEM_BLOCKS-1:0];
 
 assign 
-      outbuf_in_addr[2] = outbuf_half3_in_addr, outbuf_in_addr[1] = outbuf_half2_in_addr, outbuf_in_addr[0] = outbuf_half1_in_addr;
+//      outbuf_in_addr[2] = outbuf_half3_in_addr, outbuf_in_addr[1] = outbuf_half2_in_addr, outbuf_in_addr[0] = outbuf_half1_in_addr;
+        outbuf_in_addr[1] = outbuf_half2_in_addr, outbuf_in_addr[0] = outbuf_half1_in_addr;
 		
 always @*
   begin
-      outbuf_half1_out_data <= outbuf_out_data[0]; outbuf_half2_out_data <= outbuf_out_data[1]; outbuf_half3_out_data <= outbuf_out_data[2];
+//      outbuf_half1_out_data <= outbuf_out_data[0]; outbuf_half2_out_data <= outbuf_out_data[1]; outbuf_half3_out_data <= outbuf_out_data[2];
+      outbuf_half1_out_data <= outbuf_out_data[0]; outbuf_half2_out_data <= outbuf_out_data[1];
 	end
 
 outbuf_dpram_multi
@@ -658,7 +702,8 @@ vga_inst
 (
  .RESET(reset),
  .VGA_CLK(pclk_global),
- .TP_SEL(test_pattern_sel),
+ .TP_SEL(gctrl_tpg), //(test_pattern_sel),
+ .TP_COLOR(gctrl_color), 
  .H_SYNC(hw_vga_hs),
  .V_SYNC(hw_vga_vs),
  .VGA_B(hw_vga_b),
@@ -692,7 +737,7 @@ dpi_recevier dpi_recevier_inst
 );
 
 //------------------------------------------------------------------------------
-// strobes generator
+// strobes generator (basing on clk_pll_dclk)
 strobe_gen_1k_50_5_1
 #( .INPUT_FREQUENCY_KHZ (8000) )
 strobe_gen_1k_from_8M
@@ -784,11 +829,13 @@ always @(posedge clk_pll_dclk or posedge reset)
 regfile_uart_mapper
 #(
  .UART_BASIC_FREQ (1152000), .UART_BAUD_RATE  (9600),
+ .TIMEOUT_VAL (5), // seconds
  
  .REG_0_RST_VAL (REG_0_RST_VALUE), .REG_1_RST_VAL (REG_1_RST_VALUE),
  .REG_2_RST_VAL (REG_2_RST_VALUE), .REG_3_RST_VAL (REG_3_RST_VALUE),
  .REG_4_RST_VAL (REG_4_RST_VALUE), .REG_5_RST_VAL (REG_5_RST_VALUE),
  .REG_6_RST_VAL (REG_6_RST_VALUE), .REG_7_RST_VAL (REG_7_RST_VALUE),
+ .REG_8_RST_VAL (REG_8_RST_VALUE),
  .REG_16_RST_VAL (REG_16_RST_VALUE), .REG_17_RST_VAL (REG_17_RST_VALUE), .REG_18_RST_VAL (REG_18_RST_VALUE), 
  .REG_19_RST_VAL (REG_19_RST_VALUE), .REG_20_RST_VAL (REG_20_RST_VALUE), .REG_21_RST_VAL (REG_21_RST_VALUE),
  .REG_22_RST_VAL (REG_22_RST_VALUE), .REG_23_RST_VAL (REG_23_RST_VALUE), .REG_24_RST_VAL (REG_24_RST_VALUE)
@@ -800,6 +847,8 @@ regfile_uart_mapper_inst
  
  .REGFILE_OUT (regfile_out),
  .REGFILE_IN  (regfile_in),
+ 
+ .AUTO_RESP (auto_resp),
  
  .RXD (uart_rx),
  .TXD (uart_tx)

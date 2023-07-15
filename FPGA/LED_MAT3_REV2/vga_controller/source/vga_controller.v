@@ -16,6 +16,7 @@ module vga_controller
  input RESET,
  input VGA_CLK,
  input [1:0]TP_SEL,    // test pattern selector
+ input [1:0]TP_COLOR,    // test pattern color
  
  output reg DE,
  output reg H_SYNC,
@@ -123,6 +124,7 @@ test_pattern_generator
  .PCLK (VGA_CLK),
  .RESET (RESET),
  .TP_SEL (TP_SEL),
+ .TP_COLOR (TP_COLOR),
  .ADDR_H (addr_h),
  .ADDR_V (addr_v),
  

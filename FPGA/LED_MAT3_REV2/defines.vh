@@ -41,20 +41,20 @@
 //`elsif LED_DRIVER_ICN2053
 `else
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- parameter DEFAULT_SCAN_RATIO = 32;
- parameter IMAGE_WIDTH_RST_VAL = 256;
+ parameter DEFAULT_SCAN_RATIO = 16;
+ parameter IMAGE_WIDTH_RST_VAL = 192;
 
  parameter NUM_LANES_MAX = 2;    // maximum number of lanes ("classic" LED panel comprises of 2 lanes)
 
- parameter MULTIPLEX_RATIO = 32;
+ parameter MULTIPLEX_RATIO = 16;
 
- parameter NUM_PANELS      = 4;  // maximim number of LED matrix panels - will be used to calculate the memory buffer size
+ parameter NUM_PANELS      = 3;  // maximim number of LED matrix panels - will be used to calculate the memory buffer size
  parameter PIXEL_DEPTH     = 8;  // number of bits per color
     
 // Special parameters 
  parameter PANEL_WIDTH  = 64; // width of the panel in pixels
- parameter PANEL_HEIGHT = 64; // height of the panel in pixels
- parameter PANEL_LANES = 3;   // normally 2
+ parameter PANEL_HEIGHT = 32; // height of the panel in pixels
+ parameter PANEL_LANES = 2;   // normally 2
  
  parameter OUTBUF_DATA_WIDTH = PIXEL_DEPTH * 3;
  

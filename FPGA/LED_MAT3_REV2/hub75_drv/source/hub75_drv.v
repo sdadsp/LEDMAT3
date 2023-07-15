@@ -1,4 +1,4 @@
-﻿//=======================================================
+//
 //  Purpose:    driver for a Chinese -_- LED-64x64 panel based on MBI5124 driver IC
 //  Version: v1.1
 //  Date:    20170829, initial ver.

@@ -18,6 +18,7 @@ module test_pattern_generator
  input PCLK,
  input RESET,
  input [1:0]TP_SEL,    // test pattern selector
+ input [1:0]TP_COLOR,  // test patter color
 
  input [10:0] ADDR_H,
  input [ 9:0] ADDR_V,
@@ -112,7 +113,7 @@ begin
 	 case (TP_SEL)
 	 2'b00:          // vertical bars
     begin
-            if ( (addr_v == 10) && (addr_h == 10) ) // mark the pixel #(10,10)
+            if ( (addr_v == 10) && (addr_h == 10) ) // mark the test pixel #(10,10)
 		         rgb_data <= 24'h00AA00;
 				else	
 			   if (0<addr_h && addr_h <= VIDEO_W*1/16)
@@ -150,27 +151,21 @@ begin
 				else rgb_data <= 24'h000000;
     end
 	 
-	 2'b01:         // Thai flag
+	 2'b01:         // plain color
     begin
-	   if ( !( (addr_h > 0) && (addr_h <= VIDEO_W) ) ) // it is mandatory to blank the RGB data at the inactive (blanked) periods
-		         rgb_data <= 24'h0000;                  // to achieve proper synchronization and color recovering
-		 else
+//	   if ( !( (addr_h > 0) && (addr_h <= VIDEO_W) ) ) // it is mandatory to blank the RGB data at the inactive (blanked) periods
+//		         rgb_data <= 24'h0000;                  // to achieve proper synchronization and color recovering
+//		 else
 		  begin
 	 
-         if ( (addr_v > 0) && (addr_v <= VIDEO_H/6) )
-	  				rgb_data <= {8'hB0, 8'h02, 8'h02}; // red
-		 		else if (addr_v > VIDEO_H/6 && addr_v <= VIDEO_H*2/6)
-					rgb_data <= {8'hB0,8'hB0, 8'hB0};   // white
-				else if (addr_v > VIDEO_H*2/6 && addr_v <= VIDEO_H*4/6)
-					rgb_data <= {8'h00, 8'h00, 8'hF0}; // blue
-				else if (addr_v > VIDEO_H*4/6 && addr_v <= VIDEO_H*5/6)
-					rgb_data <= {8'hB0,8'hB0, 8'hB0};   // white
-				else if (addr_v > VIDEO_H*5/6 && addr_v <= VIDEO_H)
-					rgb_data <= {8'hB0,8'h02, 8'h02};   //  red
-				else rgb_data <= 24'h000000;
+         if      ( TP_COLOR == 2'b00 )		rgb_data <= {8'h0F, 8'h0F, 8'h0F}; // grey
+		 	else if ( TP_COLOR == 2'b01 )		rgb_data <= {8'hFF, 8'h00, 8'h00}; // red
+		 	else if ( TP_COLOR == 2'b10 )		rgb_data <= {8'h00, 8'hFF, 8'h00}; // green
+		 	else if ( TP_COLOR == 2'b11 )		rgb_data <= {8'h00, 8'h00, 8'hFF}; // blue
+			
 		  end
     end
-
+/*
 	 2'b10: // diagonal line
 	 begin
          if (  ( (addr_v >= 1) && (addr_v <= VIDEO_H) ) && ( (addr_h >= 1) && (addr_h <= VIDEO_W) ) )
@@ -181,8 +176,14 @@ begin
 			end
 			 else   rgb_data <= 24'h000000;
 	 end
-	 
-	 default: // grey gradient
+*/
+
+	 2'b10: // black screen
+	 begin
+        rgb_data <= 24'h000000;
+	 end
+
+	 default: // grey gradient (2'b11)
 	 begin
        if ( is_pixel_32 ) // mark the pixel #(4,4)
 		           rgb_data <= 24'h005555;
@@ -195,7 +196,7 @@ begin
 	  				  //rgb_data <= { 3{test_gray_data_corrected[21-:8]} }; 
 			 else   rgb_data <= 24'h000000;
 	 end
-	 
+
 	 endcase
 	 
 end

@@ -5,6 +5,7 @@
 //  Author: Dim Su
 //  History Release:
 //  20180825 - Initial version (1.0)
+//  20230623 - HPD Trig option 
 //
 //==============================================================================
 
@@ -38,7 +39,7 @@ module led_mat3(
 
  input	     DVI_ENA,
  
- output       DVI_CONFIRM,
+ output       DVI_CONFIRM, //BL_ON signal
 
  input 	     KEY,
 
@@ -55,7 +56,7 @@ assign LEDG = led[0], LEDY = led[1];
 
 assign key[0] = 1'b0, key[1] = 1'b0;
 
-assign DVI_CONFIRM = 1'b1;
+//assign DVI_CONFIRM = 1'b1;
 
 
 led_mat_core led_mat_core_inst
@@ -67,6 +68,7 @@ led_mat_core led_mat_core_inst
  .DPI_PCLK (DPI_PCLK),
  .DPI_DE (DPI_DE),
  .DPI_R (DPI_R), .DPI_G (DPI_G), .DPI_B (DPI_B),
+ .HPD_TRIG(DVI_CONFIRM),
 	
  .HUB1_R (HUB1_R), .HUB1_G (HUB1_G), .HUB1_B (HUB1_B),
  .HUB2_R (HUB2_R), .HUB2_G (HUB2_G), .HUB2_B (HUB2_B),
